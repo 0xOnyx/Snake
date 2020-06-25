@@ -1,24 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import snake from "snake"
+
 function App() {
+  let refs =  React.createRef()
+
+  function game(){
+    let canvas = refs.current
+    canavas.getContext("2d")
+    new snake(canvas)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <canvas width={100} height={100} ref={refs}></canvas>
     </div>
   );
 }
