@@ -10,20 +10,20 @@ function App() {
 
   function game(){
     let canvas = refs.current
-    canvas.getContext("2d")
-    new Snake(canvas, direction)
+    let context = canvas.getContext("2d")
+    let game = new Snake(context, direction)
   }
 
   function keypress(e){
-    console.log(e.code)
+    console.log("e")
   }
 
 
 
   return (
-    <div>
+    <div onKeyDown={kes$} tabIndex={0}>
       <button onClick={game}> OK</button>
-      <canvas width={100} height={100} ref={refs} onkeydown={keypress}></canvas>
+      <canvas width={10000} height={10000} ref={refs}></canvas>
     </div>
   );
 }

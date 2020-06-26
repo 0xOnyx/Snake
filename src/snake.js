@@ -17,6 +17,7 @@ class Snake{
         this.game[y][x] = 0
       }
     }
+    this.eatSpawn()
     this.writeALL()
     this.move()
   }
@@ -24,8 +25,9 @@ class Snake{
 
 
  writeALL(){
-   for(let y = 0 ; y < this.game.lenght; y++){
-     for(let x = 0 ; x < this.game[y].lenght ; x++){
+
+   for(let y = 0 ; y < this.game.length; y++){
+     for(let x = 0 ; x < this.game[y].length ; x++){
        if(this.game[y][x] === 0){
          this.canvas.fillStyle = "#2c3e50"
        }
@@ -38,8 +40,8 @@ class Snake{
        if(this.game[y][x] === 3){
          this.canvas.fillStyle = "#16a085"
        }
-
-       this.canvas.fillReact( ((x+1)*10) - 10 , ((y+1)*10) - 10, 10, 10)
+       
+       this.canvas.fillRect( ((x+1)*100) - 100 , ((y+1)*100) - 100, 100, 100)
      }
    }
  }
