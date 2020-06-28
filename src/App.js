@@ -5,25 +5,34 @@ import Snake from "./snake"
 
 function App() {
   let refs =  React.createRef()
+  let game = 0
 
-  let direction = "l"
+  function play(){
+    if(game === 0){
+      let canvas = refs.current
+      let context = canvas.getContext("2d")
+      game = new Snake(context)
 
-  function game(){
-    let canvas = refs.current
-    let context = canvas.getContext("2d")
-    let game = new Snake(context, direction)
+    }
   }
 
   function keypress(e){
-    console.log("e")
+    let options = [
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowRight",
+        "ArrowLeft"
+    ]
+    if(options.indexOf(e.key) + 1)
+    game.direction = e.key
   }
 
 
 
   return (
-    <div onKeyDown={kes$} tabIndex={0}>
-      <button onClick={game}> OK</button>
-      <canvas width={10000} height={10000} ref={refs}></canvas>
+    <div onKeyDown={keypress} tabIndex={0} onClick={play}>
+      <button onClick={play}> OK</button>
+      <canvas width={1000} height={1000} ref={refs}></canvas>
     </div>
   );
 }
